@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cineby TV Launcher</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { 
+            width: 100%; 
+            height: 100%; 
+            background-color: #000; 
+            overflow: hidden; 
+        }
+        iframe {
+            width: 100vw;
+            height: 100vh;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Embeds the video framework directly into the Tizen kiosk layer -->
+    <iframe id="tv-frame" src="https://www.cineby.at" allowfullscreen></iframe>
+
+    <script>
+        const iframe = document.getElementById('tv-frame');
+
+        // Handle the physical Samsung TV remote inputs
+        window.addEventListener('keydown', function(e) {
+            switch(e.keyCode) {
+                case 13: // Enter / Select Button
+                    // Pass the click event down into the frame elements
+                    break;
+                case 10009: // Return / Back Button on Samsung Remote
+                    e.preventDefault();
+                    // Let the remote go back in browsing history instead of crashing the app
+                    if (iframe.contentWindow.history.length > 1) {
+                        iframe.contentWindow.history.back();
+                    }
+                    break;
+            }
+        });
+
+        // Ensure the iframe has focus so arrow-key scrolling works immediately
+        iframe.onload = function() {
+            iframe.contentWindow.focus();
+        };
+    </script>
+</body>
+</html>

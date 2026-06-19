@@ -2,61 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cineby TV Launcher</title>
-    <style>
-        html, body { 
-            width: 100%; 
-            height: 100%; 
-            background-color: #141414; 
-            margin: 0; 
-            padding: 0; 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-family: sans-serif;
-        }
-        .launch-btn {
-            background-color: #ff4500;
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            font-size: 24px;
-            font-weight: bold;
-            border-radius: 8px;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(255, 69, 0, 0.4);
-            transition: transform 0.1s, outline 0.1s;
-        }
-        .launch-btn:focus {
-            outline: 4px solid #ffffff;
-            transform: scale(1.1);
-        }
-    </style>
-</head>
-<body>
-    <h1 style="margin-bottom: 30px;">Cineby Streaming Portal</h1>
-    <button class="launch-btn" id="start-btn" autofocus>▶ Launch Cineby</button>
-
     <script>
-        const btn = document.getElementById('start-btn');
-        btn.focus();
-
-        function launch() {
-            window.location.href = "https://www.cineby.at";
-        }
-
-        // Standard click
-        btn.addEventListener('click', launch);
-
-        // Tizen remote Enter key codes (13 = Enter, 65376 = Tizen Enter)
-        window.addEventListener('keydown', function(e) {
-            if (e.keyCode === 13 || e.keyCode === 65376) {
-                launch();
-            }
-        });
+        window.location.replace("https://www.cineby.at");
     </script>
-</body>
+</head>
+<body></body>
 </html>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets"
+        xmlns:tizen="http://tizen.org/ns/widgets"
+        id="http://yeabaka.github.io/cineby"
+        version="1.0.0">
+    <tizen:application id="cinebytv.app" package="cinebytv" required_version="2.3"/>
+    <content src="app/index.html"/>
+    <tizen:privilege name="http://tizen.samsung.com/privilege/extendedwebapi"/>
+    <name>Cineby</name>
+    <icon src="icon.png"/>
+    <tizen:profile name="tv-samsung"/>
+</widget>

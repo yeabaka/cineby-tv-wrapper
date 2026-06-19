@@ -28,8 +28,8 @@
             border-radius: 8px;
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(255, 69, 0, 0.4);
+            transition: transform 0.1s, outline 0.1s;
         }
-        /* Visual confirmation when your Samsung remote focuses the button */
         .launch-btn:focus {
             outline: 4px solid #ffffff;
             transform: scale(1.1);
@@ -37,20 +37,25 @@
     </style>
 </head>
 <body>
-
     <h1 style="margin-bottom: 30px;">Cineby Streaming Portal</h1>
-    
-    <button class="launch-btn" id="start-btn" autofocus>Click to Launch Cineby</button>
+    <button class="launch-btn" id="start-btn" autofocus>▶ Launch Cineby</button>
 
     <script>
         const btn = document.getElementById('start-btn');
-        
-        // Ensure it gets highlighted immediately so the TV remote can click it
         btn.focus();
 
-        // Redirect when the remote's "Enter/Select" button is clicked
-        btn.addEventListener('click', function() {
+        function launch() {
             window.location.href = "https://www.cineby.at";
+        }
+
+        // Standard click
+        btn.addEventListener('click', launch);
+
+        // Tizen remote Enter key codes (13 = Enter, 65376 = Tizen Enter)
+        window.addEventListener('keydown', function(e) {
+            if (e.keyCode === 13 || e.keyCode === 65376) {
+                launch();
+            }
         });
     </script>
 </body>
